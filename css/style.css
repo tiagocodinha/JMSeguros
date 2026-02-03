@@ -254,7 +254,7 @@ body.no-scroll {
   padding-top: var(--header-height);
   box-sizing: border-box;
 
-  background-image: url("../content/images/hero.png");
+  background-image: url("../content/images/hero.webp");
   background-size: cover;
   background-repeat: no-repeat;
 
@@ -327,7 +327,7 @@ body.no-scroll {
 
 @media (max-width: 768px) {
   .hero-parallax {
-    background-image: url("../content/images/hero-mobile.png");
+    background-image: url("../content/images/hero-mobile.webp");
     background-attachment: scroll;
 
     background-size: cover;
