@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jorge Marques Seguros</title>
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="icon" type="image/svg+xml" href="/content/icons/JM-icon-favicon.svg" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5F9BB4MV");
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Tailwind (sem preflight para não mexer no teu CSS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        corePlugins: { preflight: false },
+      };
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+  </head>
+
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5F9BB4MV"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="background-overlay"></div>
+
+    <!-- HEADER -->
+    <header id="header" class="header">
+      <div class="site-container">
+        <div class="header-content">
+          <a class="logo" href="#home" aria-label="Jorge Marques Seguros">
+            <img
+              src="/content/icons/JM-horizontal.svg"
+              alt="Jorge Marques Seguros"
+              class="logo-image"
+            />
+          </a>
+
+          <nav id="nav" class="nav" aria-label="Navegação principal">
+            <div class="nav-links">
+              <a class="nav-link" href="#services">Seguros</a>
+              <a class="nav-link" href="#benefits">Vantagens</a>
+              <a class="nav-link" href="#faq">FAQ</a>
+              <a class="nav-link" href="#contact">Contactos</a>
+
+              <!-- ✅ Simular dentro do menu (apenas mobile) -->
+              <a class="nav-link nav-link-cta" href="/seguro-auto/index.html">Simular</a>
+            </div>
+          </nav>
+
+          <!-- ✅ Simular desktop (fica à direita; some em mobile) -->
+          <a class="btn btn-primary header-cta" href="/seguro-auto/index.html">Simular</a>
+
+          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main-content">
+      <!-- HERO -->
+      <section id="home" class="hero hero-parallax">
+        <div class="hero-parallax-overlay"></div>
+
+        <div class="hero-parallax-content">
+          <p class="hero-parallax-text">
+            <span class="line-1">Seguramos o presente,</span><br>
+            <span class="line-2">asseguramos o futuro.</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- INSURANCE CARDS -->
+      <section id="services" class="insurance-section">
+        <div class="site-container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Seguros</h2>
+            <p class="section-subtitle">
+              Escolha a proteção certa. Coberturas claras e apoio quando mais precisa.
+            </p>
+          </div>
+
+          <div class="insurance-grid">
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">
+                <i data-lucide="home" class="w-8 h-8"></i>
+              </div>
+              <h3 class="insurance-card-title">Casa</h3>
+              <p class="insurance-card-description">
+                Proteja a sua casa contra imprevistos: incêndio, danos por água, roubo e mais.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Assistência 24/7</li>
+                <li>Danos por água e incêndio</li>
+                <li>Responsabilidade civil</li>
+              </ul>
+            </div>
+
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">
+                <i data-lucide="car" class="w-8 h-8"></i>
+              </div>
+              <h3 class="insurance-card-title">Automóvel</h3>
+              <p class="insurance-card-description">
+                Do básico ao completo: cobertura de danos, assistência em viagem e viatura de substituição.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Assistência em viagem</li>
+                <li>Quebra de vidros</li>
+                <li>Proteção do condutor</li>
+              </ul>
+            </div>
+
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">
+                <i data-lucide="heart" class="w-8 h-8"></i>
+              </div>
+              <h3 class="insurance-card-title">Vida</h3>
+              <p class="insurance-card-description">
+                Garanta tranquilidade para a sua família com proteção financeira em momentos difíceis.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Cobertura por invalidez</li>
+                <li>Capital ajustável</li>
+                <li>Apoio familiar</li>
+              </ul>
+            </div>
+
+            <div class="insurance-card animate-on-scroll">
+              <div class="insurance-card-icon">
+                <i data-lucide="stethoscope" class="w-8 h-8"></i>
+              </div>
+              <h3 class="insurance-card-title">Saúde</h3>
+              <p class="insurance-card-description">
+                Consultas, exames e tratamentos com acesso rápido a uma rede alargada.
+              </p>
+              <ul class="insurance-card-features">
+                <li>Rede convencionada</li>
+                <li>Reembolsos</li>
+                <li>Telemedicina</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BENEFITS -->
+      <section id="benefits">
+        <div class="site-container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Porquê escolher-nos</h2>
+            <p class="section-subtitle">
+              Menos complicações, mais proteção e um atendimento rápido.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-item animate-on-scroll">
+              <div class="benefit-icon">⚡</div>
+              <h3 class="benefit-title">Resposta rápida</h3>
+              <p class="benefit-description">
+                Simulações e propostas sem burocracias e com acompanhamento.
+              </p>
+            </div>
+
+            <div class="benefit-item animate-on-scroll">
+              <div class="benefit-icon">🛡️</div>
+              <h3 class="benefit-title">Coberturas claras</h3>
+              <p class="benefit-description">
+                Explicamos tudo em linguagem simples para tomar decisões seguras.
+              </p>
+            </div>
+
+            <div class="benefit-item animate-on-scroll">
+              <div class="benefit-icon">🤝</div>
+              <h3 class="benefit-title">Apoio humano</h3>
+              <p class="benefit-description">
+                Atendimento real e acompanhamento em sinistros do início ao fim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq">
+        <div class="site-container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subtitle">Respostas rápidas às dúvidas mais comuns.</p>
+          </div>
+
+          <div class="faq-container">
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question">
+                Quanto tempo demora a receber uma simulação?
+                <span class="faq-icon">⌄</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Normalmente enviamos uma simulação no próprio dia, dependendo do tipo de seguro e dados fornecidos.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question">
+                Posso alterar coberturas mais tarde?
+                <span class="faq-icon">⌄</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Sim. Pode ajustar coberturas, capitais e franquias conforme a sua necessidade.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item animate-on-scroll">
+              <button class="faq-question">
+                Como funciona em caso de sinistro?
+                <span class="faq-icon">⌄</span>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  Contacta-nos e guiamos todo o processo. Recolhemos os dados e tratamos da participação com a seguradora.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <div class="site-container">
+          <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">
+              Envia a tua mensagem e pedimos uma simulação sem compromisso.
+            </p>
+          </div>
+
+          <div class="contact-content">
+            <div class="contact-info animate-on-scroll">
+              <h3>Fale connosco</h3>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i data-lucide="phone" class="lucide-icon"></i>
+                </div>
+                <div>
+                  <div class="info-label">Telefone</div>
+                  <div class="info-value">
+                    <a href="tel:+351262562999" class="text-gray-600 hover:text-[#215ba4]">
+                      +351 262 562 999
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i data-lucide="mail" class="lucide-icon"></i>
+                </div>
+                <div>
+                  <div class="info-label">Email</div>
+                  <div class="info-value">
+                    <a
+                      href="mailto:geral@jorgemarquesseguros.com"
+                      class="text-gray-600 hover:text-[#215ba4]"
+                    >
+                      geral@jorgemarquesseguros.com
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-item">
+                <div class="contact-icon">
+                  <i data-lucide="map-pin" class="lucide-icon"></i>
+                </div>
+
+                <div>
+                  <div class="info-label">Morada</div>
+
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rua+Heróis+do+Ultramar+41+2450-027+Famalicão"
+                    target="_blank"
+                    rel="noopener"
+                    class="info-value block hover:text-[#215ba4]"
+                  >
+                    <span class="block">Rua Heróis do Ultramar 41</span>
+                    <span class="block">2450-027 Famalicão</span>
+                  </a>
+
+                  <div style="height: 8px;"></div>
+
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Rua+Alves+Redol+Loja+25+2450-168+Nazaré"
+                    target="_blank"
+                    rel="noopener"
+                    class="info-value block hover:text-[#215ba4]"
+                  >
+                    <span class="block">Rua Alves Redol, Loja 25</span>
+                    <span class="block">2450-168 Nazaré</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-wrapper animate-on-scroll">
+              <div id="contactFormContainer">
+                <form id="contactForm" class="contact-form">
+                  <div class="form-group">
+                    <label for="name">Nome</label>
+                    <input id="name" name="name" type="text" placeholder="O seu nome" />
+                    <div id="nameError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="o.seu@email.com" />
+                    <div id="emailError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input id="phone" name="phone" type="tel" placeholder="9xx xxx xxx" />
+                    <div id="phoneError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="insurance-type">Tipo de Seguro</label>
+                    <select id="insurance-type" name="insurance-type">
+                      <option value="">Selecione uma opção</option>
+                      <option value="auto">Seguro Auto</option>
+                      <option value="moto">Seguro Moto</option>
+                      <option value="casa">Seguro Casa</option>
+                      <option value="saude">Seguro Saúde</option>
+                      <option value="vida">Seguro Vida</option>
+                      <option value="bicicleta">Bicicleta & Trotinete</option>
+                    </select>
+                    <div id="insurance-typeError" class="error-message"></div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="message">Mensagem</label>
+                    <textarea id="message" name="message" placeholder="Diz-nos o que precisas..."></textarea>
+                    <div id="messageError" class="error-message"></div>
+                  </div>
+
+                  <button class="btn btn-primary btn-full" type="submit">Enviar Mensagem</button>
+                </form>
+              </div>
+
+              <div id="successMessage" class="success-message" style="display:none;">
+                <div style="font-size: 48px;">✅</div>
+                <h3>Mensagem enviada!</h3>
+                <p>Obrigado. Vamos responder o mais rápido possível!</p>
+                <button id="sendAnotherBtn" class="btn btn-secondary" type="button">Enviar outra</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="max-w-6xl mx-auto px-4 text-center">
+        <div class="inline-grid md:grid-cols-3 gap-x-28 gap-y-12 mb-8 text-left mx-auto">
+          <div>
+            <div class="flex items-center justify-start mb-4">
+              <span class="text-2xl font-bold whitespace-nowrap leading-none ">Jorge Marques Seguros</span>
+            </div>
+
+            <p class="text-gray-400 mb-4">Seguramos o presente, asseguramos o futuro.</p>
+
+            <div class="flex justify-start gap-4">
+              <a
+                href="https://www.instagram.com/jorgemarquesseguros"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+                aria-label="Instagram"
+              >
+                <i data-lucide="instagram" class="w-5 h-5"></i>
+              </a>
+
+              <a
+                href="https://www.facebook.com/jorgemarquesseguros"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center justify-center text-gray-400 hover:text-[#215ba4] transition-transform duration-200 hover:scale-110 hover:-translate-y-0.5"
+                aria-label="Facebook"
+              >
+                <i data-lucide="facebook" class="w-5 h-5"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Seguros</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Acidentes Pessoais</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Automóvel</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Multirriscos Habitação</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Motociclo</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">PPR</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Responsabilidade Civil Geral</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Saúde</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Vida Risco</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-lg font-bold mb-4">Legal</h4>
+            <ul class="space-y-2">
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Termos e Condições</a></li>
+              <li><a href="/politica-privacidade/" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Política de Privacidade</a></li>
+              <li><a href="/politica-cookies/" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Política de Cookies</a></li>
+              <li><a href="#" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">Proteção de Dados</a></li>
+              <li>
+                <a href="https://www.livroreclamacoes.pt/Pedido/Reclamacao" class="text-gray-400 hover:text-[#215ba4] whitespace-nowrap">
+                  Livro de Reclamações
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-600 pt-8 text-center text-gray-400">
+          <p>&copy; <span id="year"></span> Jorge Marques - Mediação de Seguros, Lda. Todos os direitos reservados.</p>
+          <p class="mt-2 text-sm">Registo ASF nº 407154829 | NIF: 507757165</p>
+        </div>
+      </div>
+    </footer>
+
+
+    <script type="module" src="/js/main.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        if (window.lucide) lucide.createIcons();
+        const y = document.getElementById("year");
+        if (y) y.textContent = new Date().getFullYear();
+      });
+
+      function scrollToSection(id) {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }
+    </script>
+  </body>
+</html>
