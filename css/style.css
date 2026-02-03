@@ -245,11 +245,7 @@ body.no-scroll {
 }
 
 /* =========================
-   HERO (imagem única + sticky)
-========================= */
-
-/* =========================
-   HERO PARALLAX (scroll normal + imagem fixa)
+   HERO PARALLAX
 ========================= */
 .hero-parallax {
   position: relative;
@@ -269,7 +265,6 @@ body.no-scroll {
   background-attachment: fixed;
 }
 
-
 /* overlay opcional para legibilidade do texto */
 .hero-parallax-overlay {
   position: absolute;
@@ -284,8 +279,8 @@ body.no-scroll {
   height: 100%;
 
   display: flex;
-  align-items: center;     /* centro vertical */
-  justify-content: flex-start;  /* <- ESQUERDA */
+  align-items: center;
+  justify-content: flex-start;
 
   padding-left: clamp(16px, 6vw, 72px);
   padding-right: 16px;
@@ -304,49 +299,35 @@ body.no-scroll {
 }
 
 .hero-parallax-text .line-2 {
-  word-spacing: 0.15em; /* aumenta/diminui até bater certo */
+  word-spacing: 0.15em;
   display: inline-block;
 }
 
-
 /* =========================
    TABLET (iPad) — ajustar hero
-   769px → 1024px
 ========================= */
 @media (min-width: 769px) and (max-width: 1024px) {
   .hero-parallax {
-    /* imagem mais à direita */
     background-position: 50% 58%;
-
-    /* em tablets o fixed pode ser instável em alguns browsers */
     background-attachment: scroll;
   }
 
   .hero-parallax-content {
-    /* texto mais para cima */
     align-items: flex-start;
     padding-top: clamp(110px, 16vh, 10px);
-
-    /* um bocadinho mais de respiro à esquerda */
     padding-left: clamp(18px, 5vw, 60px);
   }
 
   .hero-parallax-text {
-    /* texto maior */
     font-size: clamp(45px, 4.2vw, 54px);
     line-height: 1.12;
     max-width: 26ch;
   }
 }
 
-
-
 @media (max-width: 768px) {
   .hero-parallax {
-    /* troca da imagem */
     background-image: url("../content/images/hero-mobile.png");
-
-    /* mobile não lida bem com fixed */
     background-attachment: scroll;
 
     background-size: cover;
@@ -356,7 +337,6 @@ body.no-scroll {
     padding-top: var(--header-height);
   }
 
-  /* texto passa para o topo */
   .hero-parallax-content {
     align-items: flex-start;
     justify-content: flex-start;
@@ -369,7 +349,6 @@ body.no-scroll {
   .hero-parallax-text {
     text-align: left;
 
-    /* 🔥 grande impacto visual */
     font-size: clamp(25px, 9vw, 52px);
     line-height: 1.32;
 
@@ -382,10 +361,6 @@ body.no-scroll {
     text-shadow: 0 8px 28px rgba(0,0,0,0.55);
   }
 }
-
-
-
-
 
 /* =========================
    BUTTONS
@@ -459,7 +434,11 @@ section {
 }
 
 /* =========================
-   INSURANCE
+   INSURANCE (CARDS) — ATUALIZADO
+   - cards mais pequenos
+   - tudo centrado
+   - ícone sem fundo (só azul)
+   - ícones e texto maiores
 ========================= */
 .insurance-section {
   background: var(--background-white);
@@ -467,69 +446,80 @@ section {
 
 .insurance-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-lg);
+
+  /* cards mais compactos */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+
+  /* centrado e com “limite” para não esticar demasiado */
+  max-width: 920px;
+  margin: 0 auto;
+
+  /* garante alinhamento visual */
+  justify-items: center;
+  align-items: start;
 }
 
 .insurance-card {
-  background: var(--background-white);
-  padding: var(--spacing-xl);
+  width: 100%;
+  max-width: 260px;          /* card mais pequeno */
+  min-height: 180px;
+
+  background: rgba(255,255,255,0.92);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-base);
   border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-md);
+
+  padding: 22px 18px;
+  text-align: center;
+
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .insurance-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   box-shadow: var(--shadow-xl);
 }
 
+/* ÍCONE: sem background */
 .insurance-card-icon {
-  width: 64px;
-  height: 64px;
-  background: linear-gradient(135deg, var(--primary-color) 0, var(--primary-light) 100%);
-  border-radius: var(--radius-lg);
+  width: auto;
+  height: auto;
+  background: transparent;     /* remove o quadrado atrás */
+  border-radius: 0;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--spacing-md);
-  color: var(--text-white);
+
+  margin: 0 auto 14px;
+
+  /* lucide usa currentColor */
+  color: var(--primary-color);
+}
+
+/* força o tamanho/espessura do lucide dentro dos cards */
+.insurance-card-icon svg,
+.insurance-card-icon i {
+  width: 46px !important;
+  height: 46px !important;
+}
+
+/* lucide real fica como svg, então afinamos aqui */
+.insurance-card-icon svg {
+  stroke: currentColor;
+  stroke-width: 2.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
 .insurance-card-title {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
-  color: var(--text-dark);
-}
-
-.insurance-card-description {
-  font-size: 15px;
-  color: var(--text-light);
-  margin-bottom: var(--spacing-md);
-  line-height: 1.6;
-}
-
-.insurance-card-features {
-  list-style: none;
-  margin-bottom: var(--spacing-lg);
-}
-
-.insurance-card-features li {
-  padding: 8px 0;
-  font-size: 14px;
-  color: var(--text-light);
-  position: relative;
-  padding-left: 24px;
-}
-
-.insurance-card-features li:before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: var(--success-color);
+  font-size: 28px;            /* texto maior */
   font-weight: 700;
+  margin: 0;
+  color: var(--text-dark);
 }
 
 /* =========================
@@ -696,16 +686,6 @@ section {
   gap: var(--spacing-md);
 }
 
-.contact-info-item > .bg-blue-100 {
-  flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  align-self: flex-start;
-}
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -754,7 +734,8 @@ section {
 }
 
 .form-group input.error,
-.form-group textarea.error {
+.form-group textarea.error,
+.form-group select.error {
   border-color: var(--error-color);
 }
 
@@ -825,14 +806,8 @@ section {
    ANIMS
 ========================= */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-on-scroll {
@@ -856,12 +831,10 @@ section {
     --spacing-2xl: 48px;
   }
 
-  /* Header: logo + burger */
   .header-content {
     grid-template-columns: auto auto;
   }
 
-  /* CTA desktop some em mobile */
   .header-cta {
     display: none;
   }
@@ -869,7 +842,7 @@ section {
   /* ✅ MENU FULL SCREEN */
   .nav {
     position: fixed;
-    inset: var(--header-height) 0 0 0; /* top right bottom left */
+    inset: var(--header-height) 0 0 0;
     width: 100vw;
     height: calc(100vh - var(--header-height));
     max-width: none;
@@ -877,8 +850,8 @@ section {
 
     display: flex;
     flex-direction: column;
-    justify-content: center; /* centro vertical */
-    align-items: center;     /* centro horizontal */
+    justify-content: center;
+    align-items: center;
 
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
@@ -887,7 +860,6 @@ section {
     padding: var(--spacing-lg);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 
-    /* fechado */
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
@@ -902,7 +874,6 @@ section {
     pointer-events: auto;
   }
 
-  /* ✅ wrapper dos links */
   .nav-links {
     width: 100%;
     max-width: 420px;
@@ -936,9 +907,7 @@ section {
     text-decoration: none;
   }
 
-  .nav-link-cta::after {
-    content: none !important;
-  }
+  .nav-link-cta::after { content: none !important; }
 
   .nav-link-cta:hover {
     transform: translateY(-1px);
@@ -948,37 +917,18 @@ section {
   .mobile-menu-toggle {
     display: flex;
     justify-self: end;
-    z-index: 1000; /* acima do overlay */
+    z-index: 1000;
   }
 
-  .logo-image {
-    height: 32px;
-  }
+  .logo-image { height: 32px; }
 
-  .hero-arrow {
-    width: 40px;
-    height: 40px;
-  }
+  .section-title { font-size: 32px; }
+  .section-subtitle { font-size: 16px; }
 
-  .hero-arrow-prev {
-    left: var(--spacing-sm);
-  }
-
-  .hero-arrow-next {
-    right: var(--spacing-sm);
-  }
-
-  .section-title {
-    font-size: 32px;
-  }
-
-  .section-subtitle {
-    font-size: 16px;
-  }
-
-  .insurance-grid,
-  .benefits-grid {
+  /* seguros mobile */
+  .insurance-grid {
     grid-template-columns: 1fr;
+    max-width: 420px;
   }
 
   .contact-content {
@@ -988,10 +938,10 @@ section {
 }
 
 /* =======================================================================
-   SEGURO AUTO (FORM PROFISSIONAL) — ADD ON
+   SEGURO AUTO (FORM PROFISSIONAL) — (SIMULAÇÃO)
    ======================================================================= */
 
-/* ✅ Mini hero do seguro-auto (mais espaço da navbar) */
+/* ✅ Mini hero do seguro-auto */
 .quote-hero {
   padding-top: calc(var(--header-height) + var(--spacing-xl));
   padding-bottom: var(--spacing-lg);
@@ -1022,26 +972,19 @@ section {
 
 .quote-hero__title {
   margin-top: 12px;
-
   font-size: clamp(28px, 3.4vw, 44px);
   line-height: 1.12;
   font-weight: 800;
-
   color: var(--text-dark);
 }
 
 .quote-hero__subtitle {
   margin-top: 10px;
   max-width: 70ch;
-
-  color: var(--text-light);
-  font-size: 16px;
-}
-
-/* Centrar a barra quando ela encolhe ao conteúdo */
-.quote-hero__inner .quote-categories {
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-light);
+  font-size: 16px;
 }
 
 /* Página do form */
@@ -1067,7 +1010,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   margin-bottom: var(--spacing-lg);
 }
 
@@ -1077,11 +1019,9 @@ section {
   font-weight: 800;
 }
 
-.form-card__header p {
-  color: var(--text-light);
-}
+.form-card__header p { color: var(--text-light); }
 
-/* Secções do formulário */
+/* Secções */
 .form-section {
   padding-top: var(--spacing-lg);
   margin-top: var(--spacing-lg);
@@ -1098,7 +1038,6 @@ section {
   display: flex;
   flex-direction: column;
   gap: 6px;
-
   margin-bottom: 14px;
 }
 
@@ -1195,9 +1134,7 @@ section {
   color: var(--error-color);
 }
 
-.q-error.show {
-  display: block;
-}
+.q-error.show { display: block; }
 
 .q-field input.error,
 .q-field select.error,
@@ -1235,18 +1172,11 @@ section {
   font-weight: 700;
 }
 
-.quote-submit {
-  min-width: 220px;
-}
+.quote-submit { min-width: 220px; }
 
 /* Painéis por categoria */
-.category-panel {
-  display: none;
-}
-
-.category-panel.active {
-  display: block;
-}
+.category-panel { display: none; }
+.category-panel.active { display: block; }
 
 /* ===== CATEGORIAS (SEM ÍCONES) — BARRA SHRINK-TO-FIT ===== */
 .quote-categories {
@@ -1267,7 +1197,6 @@ section {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Botão mede pelo texto */
 .quote-cat {
   position: relative;
 
@@ -1277,7 +1206,6 @@ section {
 
   flex: 0 0 auto;
   width: max-content;
-  min-width: unset;
 
   padding: 10px 14px;
   border: 1px solid transparent;
@@ -1311,36 +1239,24 @@ section {
   border-color: rgba(0, 102, 255, 0.18);
 }
 
-/* Evita underline “antigo” se existir noutro bloco */
-.quote-cat::after {
-  content: none !important;
-}
+.quote-cat::after { content: none !important; }
 
-/* Mobile (form) */
 @media (max-width: 768px) {
   .quote-hero {
     padding-top: calc(var(--header-height) + var(--spacing-lg));
     padding-bottom: var(--spacing-md);
   }
 
-  .form-card {
-    border-radius: 16px;
-  }
+  .form-card { border-radius: 16px; }
 
   .q-col-8,
   .q-col-6,
   .q-col-4,
-  .q-col-3 {
-    grid-column: span 12;
-  }
+  .q-col-3 { grid-column: span 12; }
 
-  .quote-submit {
-    width: 100%;
-  }
+  .quote-submit { width: 100%; }
 
-  .form-actions {
-    align-items: stretch;
-  }
+  .form-actions { align-items: stretch; }
 
   .quote-categories {
     gap: 10px;
@@ -1354,7 +1270,7 @@ section {
 }
 
 /* =========================
-   CONTACT ICONS — sem fundo + ícone mais grosso + acento degradé
+   CONTACT ICONS — sem fundo + ícone azul
 ========================= */
 .contact-icon {
   flex: 0 0 auto;
@@ -1365,7 +1281,7 @@ section {
   align-items: center;
   justify-content: center;
 
-  background: transparent; /* remove fundo */
+  background: transparent;
   border: 0;
   padding: 0;
   border-radius: 0;
@@ -1373,7 +1289,7 @@ section {
   position: relative;
 }
 
-/* acento degradé (sem “quadrado” atrás) */
+/* acento discreto */
 .contact-icon::after {
   content: "";
   position: absolute;
@@ -1385,36 +1301,32 @@ section {
   height: 3px;
   border-radius: 999px;
 
-  background: linear-gradient(135deg, #215ba4 20%, #000 100%);
+  background: linear-gradient(135deg, var(--primary-color) 20%, #000 100%);
   opacity: 0.9;
 }
 
-/* garante tamanho igual em TODOS os ícones do contacto */
 .contact-icon svg,
 .contact-icon .lucide-icon {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   display: block;
 
-  stroke: #000;
-  stroke-width: 2;
-  fill: none;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  /* ajuda a manter a espessura consistente */
-  vector-effect: non-scaling-stroke;
+  color: var(--primary-color);
 }
 
-
+.contact-icon svg {
+  stroke: currentColor;
+  stroke-width: 2.6;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
 
 /* =========================
    PRIVACY CHECKBOX (CONTACT FORM)
 ========================= */
-.form-check {
-  gap: 8px;
-}
+.form-check { gap: 8px; }
 
 .check-label {
   display: flex;
@@ -1438,11 +1350,8 @@ section {
   text-decoration: underline;
 }
 
-.check-label a:hover {
-  opacity: 0.9;
-}
+.check-label a:hover { opacity: 0.9; }
 
-/* erro visual no checkbox (se necessário) */
 #privacy.error {
   outline: 2px solid rgba(239, 68, 68, 0.55);
   outline-offset: 2px;

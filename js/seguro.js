@@ -52,9 +52,7 @@
       byId("categoria") || form.querySelector('input[name="categoria"]');
 
     const formTitle =
-      byId("formTitle") ||
-      byId("form-title") ||
-      qs("[data-form-title]");
+      byId("formTitle") || byId("form-title") || qs("[data-form-title]");
 
     const catButtons = qsa(".quote-cat[data-category]");
     const panels = qsa(".category-panel[data-category-panel]");
@@ -130,16 +128,14 @@
     // =========================
     // VALIDATORS
     // =========================
-    const isEmailValid = (email) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    const isEmailValid = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
 
     const isPhonePTValid = (phone) => {
       const p = onlyDigits(phone);
       return /^9\d{8}$/.test(p);
     };
 
-    const isPostalPTValid = (cp) =>
-      /^\d{4}-\d{3}$/.test(trim(cp));
+    const isPostalPTValid = (cp) => /^\d{4}-\d{3}$/.test(trim(cp));
 
     const isNIFValid = (nif) => {
       const n = onlyDigits(nif);
@@ -148,9 +144,7 @@
       const digits = n.split("").map((x) => parseInt(x, 10));
       let sum = 0;
 
-      for (let i = 0; i < 8; i++) {
-        sum += digits[i] * (9 - i);
-      }
+      for (let i = 0; i < 8; i++) sum += digits[i] * (9 - i);
 
       const mod11 = sum % 11;
       const check = mod11 < 2 ? 0 : 11 - mod11;
@@ -185,27 +179,19 @@
     // =========================
     // SCROLL HELPERS
     // =========================
-    const getHeaderOffset = () =>
-      (header ? header.offsetHeight : 0) + 14;
+    const getHeaderOffset = () => (header ? header.offsetHeight : 0) + 14;
 
     const calcTargetY = (el) => {
-      const y =
-        el.getBoundingClientRect().top +
-        window.pageYOffset -
-        getHeaderOffset();
-
+      const y = el.getBoundingClientRect().top + window.pageYOffset - getHeaderOffset();
       return Math.max(0, y);
     };
 
-    const shouldScrollTo = (targetY) =>
-      Math.abs(window.pageYOffset - targetY) > 80;
+    const shouldScrollTo = (targetY) => Math.abs(window.pageYOffset - targetY) > 80;
 
     const scrollToTarget = () => {
       const targetEl = getScrollTarget();
       const y = calcTargetY(targetEl);
-
       if (!shouldScrollTo(y)) return;
-
       window.scrollTo({ top: y, behavior: "smooth" });
     };
 
@@ -217,11 +203,7 @@
 
       if (catsScroller) {
         try {
-          btn.scrollIntoView({
-            behavior: "smooth",
-            inline: "center",
-            block: "nearest",
-          });
+          btn.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
           return;
         } catch (_) {}
       }
@@ -284,7 +266,6 @@
       let ok = true;
 
       const requiredFields = qsa("[required]", form).filter(isVisible);
-
       requiredFields.forEach((field) => {
         const v = trim(field.value);
         if (!v) {
@@ -306,97 +287,25 @@
         }
       };
 
-      checkIfVisible(
-        "nome",
-        (v) => isMinWords(v, 2),
-        "Indique pelo menos nome e apelido."
-      );
-
-      checkIfVisible(
-        "codigo_postal",
-        isPostalPTValid,
-        "Código postal inválido (ex: 1234-567)."
-      );
-
-      checkIfVisible(
-        "nif",
-        isNIFValid,
-        "NIF inválido (dígito de controlo)."
-      );
-
-      checkIfVisible(
-        "telemovel",
-        isPhonePTValid,
-        "Telemóvel inválido (9 dígitos, começa por 9)."
-      );
-
+      checkIfVisible("nome", (v) => isMinWords(v, 2), "Indique pelo menos nome e apelido.");
+      checkIfVisible("codigo_postal", isPostalPTValid, "Código postal inválido (ex: 1234-567).");
+      checkIfVisible("nif", isNIFValid, "NIF inválido (dígito de controlo).");
+      checkIfVisible("telemovel", isPhonePTValid, "Telemóvel inválido (9 dígitos, começa por 9).");
       checkIfVisible("email", isEmailValid, "Email inválido.");
 
-      checkIfVisible(
-        "data_nascimento",
-        isPastDate,
-        "A data de nascimento tem de ser no passado."
-      );
+      checkIfVisible("data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
+      checkIfVisible("data_matricula", isPastDate, "A data da matrícula tem de ser no passado.");
+      checkIfVisible("data_carta", isPastDate, "A data da carta tem de ser no passado.");
+      checkIfVisible("inicio_seguro", isTodayOrFuture, "A data de início deve ser hoje ou no futuro.");
 
-      checkIfVisible(
-        "data_matricula",
-        isPastDate,
-        "A data da matrícula tem de ser no passado."
-      );
+      checkIfVisible("matricula", isMatriculaPTValid, "Matrícula inválida (formatos PT comuns).");
+      checkIfVisible("auto_matricula", isMatriculaPTValid, "Matrícula inválida (formatos PT comuns).");
+      checkIfVisible("moto_matricula", isMatriculaPTValid, "Matrícula inválida (formatos PT comuns).");
 
-      checkIfVisible(
-        "data_carta",
-        isPastDate,
-        "A data da carta tem de ser no passado."
-      );
-
-      checkIfVisible(
-        "inicio_seguro",
-        isTodayOrFuture,
-        "A data de início deve ser hoje ou no futuro."
-      );
-
-      checkIfVisible(
-        "matricula",
-        isMatriculaPTValid,
-        "Matrícula inválida (formatos PT comuns)."
-      );
-
-      checkIfVisible(
-        "auto_matricula",
-        isMatriculaPTValid,
-        "Matrícula inválida (formatos PT comuns)."
-      );
-
-      checkIfVisible(
-        "moto_matricula",
-        isMatriculaPTValid,
-        "Matrícula inválida (formatos PT comuns)."
-      );
-
-      checkIfVisible(
-        "auto_data_matricula",
-        isPastDate,
-        "A data da matrícula tem de ser no passado."
-      );
-
-      checkIfVisible(
-        "auto_inicio",
-        isTodayOrFuture,
-        "A data de início deve ser hoje ou no futuro."
-      );
-
-      checkIfVisible(
-        "moto_data_matricula",
-        isPastDate,
-        "A data da matrícula tem de ser no passado."
-      );
-
-      checkIfVisible(
-        "moto_inicio",
-        isTodayOrFuture,
-        "A data de início deve ser hoje ou no futuro."
-      );
+      checkIfVisible("auto_data_matricula", isPastDate, "A data da matrícula tem de ser no passado.");
+      checkIfVisible("auto_inicio", isTodayOrFuture, "A data de início deve ser hoje ou no futuro.");
+      checkIfVisible("moto_data_matricula", isPastDate, "A data da matrícula tem de ser no passado.");
+      checkIfVisible("moto_inicio", isTodayOrFuture, "A data de início deve ser hoje ou no futuro.");
 
       // cross-check: carta vs nascimento
       const dn = parseDate(fieldValue("data_nascimento"));
@@ -405,10 +314,7 @@
       if (dn && dc) {
         if (dc.getTime() <= dn.getTime()) {
           ok = false;
-          setError(
-            "data_carta",
-            "A data da carta não pode ser anterior à data de nascimento."
-          );
+          setError("data_carta", "A data da carta não pode ser anterior à data de nascimento.");
         } else {
           const minCarta = new Date(dn);
           minCarta.setFullYear(minCarta.getFullYear() + 16);
@@ -427,8 +333,7 @@
       const nifEl = byId("nif");
       if (nifEl && isVisible(nifEl)) nifEl.value = onlyDigits(nifEl.value);
 
-      const matEl =
-        byId("matricula") || byId("auto_matricula") || byId("moto_matricula");
+      const matEl = byId("matricula") || byId("auto_matricula") || byId("moto_matricula");
       if (matEl && isVisible(matEl)) matEl.value = trim(matEl.value).toUpperCase();
 
       return ok;
@@ -442,8 +347,7 @@
         const el = byId(id);
         if (!el) return;
 
-        const evt =
-          el.tagName === "SELECT" || el.type === "date" ? "change" : "input";
+        const evt = el.tagName === "SELECT" || el.type === "date" ? "change" : "input";
 
         el.addEventListener(
           evt,
@@ -457,10 +361,7 @@
 
       bind("nome", (el) => {
         const v = trim(el.value);
-        setError(
-          "nome",
-          v ? (isMinWords(v, 2) ? "" : "Indique nome e apelido.") : ""
-        );
+        setError("nome", v ? (isMinWords(v, 2) ? "" : "Indique nome e apelido.") : "");
       });
 
       bind("codigo_postal", (el) => {
@@ -490,18 +391,14 @@
         });
       });
 
-      [
-        "data_nascimento",
-        "data_matricula",
-        "data_carta",
-        "auto_data_matricula",
-        "moto_data_matricula",
-      ].forEach((id) => {
-        bind(id, (el) => {
-          const v = trim(el.value);
-          setError(id, v ? (isPastDate(v) ? "" : "Tem de ser no passado.") : "");
-        });
-      });
+      ["data_nascimento", "data_matricula", "data_carta", "auto_data_matricula", "moto_data_matricula"].forEach(
+        (id) => {
+          bind(id, (el) => {
+            const v = trim(el.value);
+            setError(id, v ? (isPastDate(v) ? "" : "Tem de ser no passado.") : "");
+          });
+        }
+      );
 
       ["inicio_seguro", "auto_inicio", "moto_inicio"].forEach((id) => {
         bind(id, (el) => {
@@ -525,15 +422,10 @@
       if (obj.nif) obj.nif = onlyDigits(obj.nif);
       if (obj.telemovel) obj.telemovel = onlyDigits(obj.telemovel);
 
-      const mat =
-        obj.matricula || obj.auto_matricula || obj.moto_matricula || "";
-
+      const mat = obj.matricula || obj.auto_matricula || obj.moto_matricula || "";
       if (mat) obj.matricula_normalizada = trim(mat).toUpperCase();
 
-      obj.categoria =
-        obj.categoria ||
-        (categoriaInput ? categoriaInput.value : getActiveCategory());
-
+      obj.categoria = obj.categoria || (categoriaInput ? categoriaInput.value : getActiveCategory());
       return obj;
     };
 
@@ -550,9 +442,7 @@
         showStatus("Por favor, corrija os campos assinalados.", "error");
 
         const firstError = qs(".error", form);
-        if (firstError) {
-          firstError.scrollIntoView({ behavior: "smooth", block: "center" });
-        }
+        if (firstError) firstError.scrollIntoView({ behavior: "smooth", block: "center" });
 
         return;
       }
@@ -572,15 +462,11 @@
           if (!res.ok) throw new Error("Falha no envio.");
         }
 
-        showStatus(
-          "Pedido enviado com sucesso. Vamos contactar o mais breve possível.",
-          "success"
-        );
+        showStatus("Pedido enviado com sucesso. Vamos contactar o mais breve possível.", "success");
 
         form.reset();
 
         const currentCat = payload.categoria || "auto";
-
         if (categoriaInput) categoriaInput.value = currentCat;
 
         setActiveCategory(currentCat, { doScroll: false });
@@ -608,12 +494,23 @@
     // =========================
     attachRealtimeValidation();
 
+    const isValidCategory = (k) =>
+      ["auto", "moto", "acidentes", "saude", "vida", "hab", "ppr", "rc"].includes(k);
+
+    const urlCat = new URLSearchParams(window.location.search).get("cat");
+
     const initial =
-      (categoriaInput && categoriaInput.value) ||
+      (urlCat && isValidCategory(urlCat) ? urlCat : null) ||
+      (categoriaInput && isValidCategory(categoriaInput.value) ? categoriaInput.value : null) ||
       catButtons.find((b) => b.classList.contains("active"))?.dataset.category ||
       "auto";
 
     setActiveCategory(initial, { doScroll: false });
+
+    // Se veio da home (com ?cat=...), faz scroll para o form
+    if (urlCat && isValidCategory(urlCat)) {
+      setTimeout(() => scrollToTarget(), 50);
+    }
   };
 
   // =========================
