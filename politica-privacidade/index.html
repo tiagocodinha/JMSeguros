@@ -8,108 +8,108 @@
   <meta name="description" content="Política de Privacidade e Proteção de Dados Pessoais da Jorge Marques Seguros." />
   <meta name="robots" content="index, follow" />
 
-  <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-5F9BB4MV");
-    </script>
-    <!-- End Google Tag Manager -->
-
+  <!-- ✅ CSS principal (atenção: página está numa pasta) -->
   <link rel="stylesheet" href="../css/style.css" />
-  <link rel="icon" type="image/svg+xml" href="../content/icons/JM-icon-favicon.svg" />
 
-
+  <!-- Pequeno ajuste visual (card) para esta página apenas -->
+  <style>
+    /* card simples que encaixa no teu design */
+    .policy-card{
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: clamp(18px, 3vw, 34px);
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .policy-card h2{ font-size: 22px; margin: 28px 0 10px; }
+    .policy-card h3{ font-size: 16px; margin: 18px 0 8px; }
+    .policy-card p{ margin-top: 10px; color: var(--text-light); }
+    .policy-card ul{ margin: 10px 0 0 18px; color: var(--text-light); }
+    .policy-card li{ margin: 6px 0; }
+    .policy-meta{ margin-top: 14px; opacity: .8; }
+    .policy-actions{
+      max-width: 980px;
+      margin: 18px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    /* dá espaço à página por causa do header fixo */
+    .policy-section{ padding-top: calc(var(--header-height) + var(--spacing-2xl)); }
+  </style>
 </head>
 
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-      <iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-5F9BB4MV"
-        height="0"
-        width="0"
-        style="display:none;visibility:hidden"
-      ></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-     
-  <header class="header">
-    <div class="container">
-      <div class="header-inner">
+  <!-- overlay leve (opcional, já tens a classe no CSS) -->
+  <div class="background-overlay" aria-hidden="true"></div>
 
-        <!-- Logo / Nome -->
-        <a class="logo" href="../index.html" aria-label="Voltar à página inicial">
-          Jorge Marques Seguros
-        </a>
+  <!-- =========================
+       HEADER (igual ao site)
+  ========================== -->
+  <header id="header" class="header">
+      <div class="site-container">
+        <div class="header-content">
+          <a class="logo" href="../index.html" aria-label="Jorge Marques Seguros">
+            <img
+              src="../content/icons/JM-horizontal.svg"
+              alt="Jorge Marques Seguros"
+              class="logo-image"
+            />
+          </a>
 
-        <!-- NAV -->
-        <nav id="nav" class="nav" aria-label="Navegação principal">
-          <div class="nav-links">
-            <a class="nav-link" href="../index.html#services">Seguros</a>
-            <a class="nav-link" href="../index.html#benefits">Vantagens</a>
-            <a class="nav-link" href="../index.html#faq">FAQ</a>
-            <a class="nav-link" href="../index.html#contact">Contactos</a>
+          <nav id="nav" class="nav" aria-label="Navegação principal">
+            <div class="nav-links">
+              <a class="nav-link" href="/index.html#services">Seguros</a>
+              <a class="nav-link" href="/index.html#benefits">Vantagens</a>
+              <a class="nav-link" href="/index.html#faq">FAQ</a>
+              <a class="nav-link" href="/index.html#contact">Contactos</a>
 
-            <!-- ✅ CTA no menu (apenas mobile, se o teu CSS fizer essa regra) -->
-            <a class="nav-link nav-link-cta" href="../seguro-auto/index.html">Simular</a>
-          </div>
-        </nav>
+              <!-- ✅ Simular dentro do menu (apenas mobile) -->
+              <a class="nav-link nav-link-cta active" href="seguro-auto/index.html">Simular</a>
+            </div>
+          </nav>
 
-        <!-- ✅ CTA desktop -->
-        <a class="btn btn-primary header-cta" href="../seguro-auto/index.html">Simular</a>
+          <!-- ✅ Simular desktop (fica à direita; some em mobile) -->
+          <a class="btn btn-primary header-cta" href="seguro-auto/index.html">Simular</a>
 
-        <!-- Menu mobile -->
-        <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
-          <span></span><span></span><span></span>
-        </button>
-
+          <button id="mobileMenuToggle" class="mobile-menu-toggle" aria-label="Abrir menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
   <!-- =========================
        MAIN
   ========================== -->
-  <main class="section">
-    <div class="container">
+  <main>
 
-      <!-- Título -->
-      <div class="section-head">
-        <h1 class="section-title">Política de Privacidade e Proteção de Dados Pessoais</h1>
-        <p class="section-subtitle">
-          Jorge Marques Seguros — Transparência, segurança e respeito pelos seus dados.
-        </p>
-        <p style="opacity:.8; margin-top:10px;">
-          <strong>Última atualização:</strong> 03/02/2026
-        </p>
-      </div>
+    <section class="policy-section">
+      <div class="container">
 
-      <!-- Conteúdo (com blocos para ficar legível) -->
-      <section class="card" style="margin-top:24px;">
-        <div class="card-content">
-          <p>
-            A <strong>Jorge Marques Seguros</strong> compromete-se a proteger a privacidade e a confidencialidade dos dados pessoais
-            tratados no âmbito da sua atividade de <strong>mediação de seguros</strong>, assegurando o cumprimento do
-            <strong>Regulamento (UE) 2016/679 (RGPD)</strong> e demais legislação aplicável.
+        <!-- Título igual às secções do site -->
+        <div class="section-header">
+          <h1 class="section-title">Política de Privacidade</h1>
+          <p class="section-subtitle">
+            Política de Privacidade e Proteção de Dados Pessoais da Jorge Marques Seguros.
           </p>
-          <p>
-            Esta Política explica como recolhemos, utilizamos, partilhamos e protegemos os seus dados pessoais, bem como os seus
-            direitos enquanto titular de dados.
+          <p class="policy-meta">
+            <strong>Última atualização:</strong> 03/02/2026
           </p>
         </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
+        <div class="policy-card">
+
+          <p>
+            A <strong>Jorge Marques Seguros</strong> compromete-se a proteger a privacidade e a confidencialidade dos dados pessoais tratados no âmbito
+            da sua atividade de <strong>mediação de seguros</strong>, assegurando o cumprimento do <strong>Regulamento (UE) 2016/679 (RGPD)</strong>
+            e demais legislação aplicável.
+          </p>
+
           <h2>1. Identificação do Responsável pelo Tratamento</h2>
           <p><strong>Nome comercial:</strong> Jorge Marques Seguros</p>
           <p><strong>Denominação social:</strong> Jorge Marques - Mediação de Seguros, Lda</p>
@@ -119,305 +119,121 @@
           <p><strong>Email:</strong> <a href="mailto:geral@jorgemarquesseguros.com">geral@jorgemarquesseguros.com</a></p>
           <p><strong>Contacto:</strong> <a href="tel:+351262562999">+351 262 562 999</a></p>
 
-          <h3 style="margin-top:14px;">Locais de atendimento</h3>
+          <h3>Locais de atendimento</h3>
           <ul>
             <li>Rua Heróis do Ultramar 41, 2450-027 Famalicão</li>
             <li>Rua Alves Redol, Loja 25, 2450-168 Nazaré</li>
           </ul>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>2. Âmbito de aplicação</h2>
+          <h2>2. Âmbito</h2>
           <p>
-            Esta Política aplica-se ao tratamento de dados pessoais realizado pela Jorge Marques Seguros, incluindo contacto presencial,
-            telefone, e-mail e outros canais, bem como pedidos de informação, simulações, contratação, gestão de apólices, renovações,
-            sinistros, reclamações e utilização do website.
+            Esta Política aplica-se aos dados pessoais recolhidos e tratados no âmbito da atividade de mediação de seguros, incluindo contactos presenciais,
+            telefónicos, por e-mail e através do website, bem como simulações, contratação, gestão de apólices, renovações, sinistros e reclamações.
           </p>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>3. O que são dados pessoais?</h2>
-          <p>
-            “Dados pessoais” são qualquer informação relativa a uma pessoa singular identificada ou identificável, direta ou indiretamente
-            (por exemplo: nome, NIF, contacto, matrícula do veículo, etc.).
-          </p>
-        </div>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>4. Categorias de dados pessoais que podemos tratar</h2>
-
-          <h3>4.1. Dados de identificação e contacto</h3>
+          <h2>3. Dados pessoais tratados</h2>
+          <p>Podemos tratar, consoante a finalidade e produto, as seguintes categorias:</p>
           <ul>
-            <li>Nome, morada, e-mail, telefone</li>
-            <li>Data de nascimento</li>
-            <li>Profissão/entidade patronal (quando relevante)</li>
-            <li>Composição do agregado familiar (quando relevante)</li>
+            <li><strong>Identificação e contacto:</strong> nome, morada, email, telefone, data de nascimento.</li>
+            <li><strong>Identificação oficial:</strong> NIF e, quando necessário, CC/passaporte/carta de condução.</li>
+            <li><strong>Risco e contrato:</strong> dados do bem seguro (ex.: matrícula/morada), apólices, coberturas, prémios, histórico de sinistros.</li>
+            <li><strong>Financeiros:</strong> dados de faturação/pagamento e, quando necessário, IBAN.</li>
+            <li><strong>Categorias especiais:</strong> dados de saúde apenas quando estritamente necessários (ex.: seguros vida/saúde, sinistros com lesões).</li>
+            <li><strong>Website:</strong> IP, browser, sistema operativo, páginas visitadas, cookies (consoante preferências).</li>
           </ul>
 
-          <h3>4.2. Dados de identificação oficial</h3>
+          <h2>4. Origem dos dados</h2>
+          <p>Os dados podem ser recolhidos:</p>
           <ul>
-            <li>NIF</li>
-            <li>Cartão de Cidadão / passaporte (quando necessário)</li>
-            <li>Carta de condução (quando necessário)</li>
-          </ul>
-
-          <h3>4.3. Dados relativos ao risco e ao contrato</h3>
-          <ul>
-            <li>Dados do bem seguro (ex.: morada do imóvel, matrícula/chassis do veículo)</li>
-            <li>Histórico de apólices, prémios, coberturas e exclusões</li>
-            <li>Informações necessárias para simulação e subscrição</li>
-            <li>Dados de sinistros anteriores e atuais</li>
-          </ul>
-
-          <h3>4.4. Dados financeiros</h3>
-          <ul>
-            <li>IBAN (quando necessário para pagamentos, reembolsos ou débitos)</li>
-            <li>Dados de faturação e pagamentos</li>
-          </ul>
-
-          <h3>4.5. Categorias especiais de dados (quando aplicável)</h3>
-          <p>
-            Alguns produtos e situações (ex.: seguros de vida/saúde, sinistros com lesões) podem exigir tratamento de
-            <strong>dados de saúde</strong> ou outros dados sensíveis estritamente necessários à finalidade, sempre com base legal adequada.
-          </p>
-
-          <h3>4.6. Dados de utilização do website</h3>
-          <ul>
-            <li>Endereço IP, browser, sistema operativo, páginas visitadas</li>
-            <li>Dados recolhidos por cookies e tecnologias semelhantes</li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>5. Como recolhemos os dados</h2>
-          <p>Podemos recolher dados pessoais:</p>
-          <ul>
-            <li><strong>Diretamente de si</strong> (formulários, e-mail, telefone, presencialmente);</li>
-            <li>
-              <strong>Através de terceiros</strong> necessários à atividade seguradora/mediadora (ex.: seguradoras, peritos, averiguadores,
-              prestadores de assistência, autoridades ou outros intervenientes num sinistro), sempre dentro dos limites legais e contratuais.
-            </li>
+            <li><strong>Diretamente</strong> junto de si (formulários, email, telefone, presencial).</li>
+            <li><strong>Indiretamente</strong> através de terceiros intervenientes necessários (seguradoras, peritos, assistência, etc.), nos termos legais/contratuais.</li>
           </ul>
           <p>
-            Se fornecer dados de terceiros (ex.: pessoas seguras, beneficiários, condutores, sinistrados), confirma que tem legitimidade para o
-            fazer e que informou essas pessoas, quando aplicável.
-          </p>
-        </div>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>6. Finalidades do tratamento e fundamentos de licitude</h2>
-
-          <h3>6.1. Simulações, cotações e diligências pré-contratuais</h3>
-          <p>
-            <strong>Finalidade:</strong> apresentar propostas/simulações, analisar risco e adequar produtos.<br>
-            <strong>Base legal:</strong> diligências pré-contratuais a seu pedido; interesses legítimos; cumprimento de obrigações legais (quando aplicável).
+            Se fornecer dados de terceiros (ex.: beneficiários, pessoas seguras), declara que tem legitimidade para o fazer e que informou essas pessoas, quando aplicável.
           </p>
 
-          <h3>6.2. Subscrição e execução do contrato de seguro</h3>
-          <p>
-            <strong>Finalidade:</strong> contratação, emissão, gestão da apólice, cobrança, alterações e renovações.<br>
-            <strong>Base legal:</strong> execução de contrato; cumprimento de obrigação legal; interesses legítimos.
-          </p>
+          <h2>5. Finalidades e fundamentos</h2>
+          <ul>
+            <li><strong>Simulação/cotação:</strong> diligências pré-contratuais e interesses legítimos.</li>
+            <li><strong>Subscrição/execução do contrato:</strong> execução contratual e obrigações legais.</li>
+            <li><strong>Gestão de apólices e comunicações:</strong> execução do contrato e interesses legítimos.</li>
+            <li><strong>Sinistros:</strong> execução do contrato, obrigações legais e interesses legítimos.</li>
+            <li><strong>Prevenção de fraude e cumprimento legal:</strong> obrigações legais e interesses legítimos.</li>
+            <li><strong>Marketing:</strong> consentimento quando exigido e/ou interesses legítimos, nos termos legais, com opção de oposição.</li>
+          </ul>
 
-          <h3>6.3. Gestão e acompanhamento de sinistros</h3>
-          <p>
-            <strong>Finalidade:</strong> participação, análise, regularização, peritagens e comunicações necessárias.<br>
-            <strong>Base legal:</strong> execução do contrato; cumprimento de obrigações legais; interesses legítimos.<br>
-            <strong>Dados sensíveis (ex.: saúde):</strong> apenas quando necessário e com base legal adequada.
-          </p>
-
-          <h3>6.4. Prevenção e combate à fraude e cumprimento legal</h3>
-          <p>
-            <strong>Finalidade:</strong> prevenção de fraude e cumprimento de deveres legais/regulamentares.<br>
-            <strong>Base legal:</strong> cumprimento de obrigação legal; interesses legítimos.
-          </p>
-
-          <h3>6.5. Comunicações administrativas</h3>
-          <p>
-            <strong>Finalidade:</strong> comunicações sobre apólices, renovações, alterações, documentação e avisos.<br>
-            <strong>Base legal:</strong> execução do contrato; interesses legítimos.
-          </p>
-
-          <h3>6.6. Marketing e comunicação (quando aplicável)</h3>
-          <p>
-            <strong>Finalidade:</strong> envio de comunicações promocionais sobre serviços/produtos.<br>
-            <strong>Base legal:</strong> consentimento (quando exigido) e/ou interesses legítimos, nos termos legais.
-          </p>
-
-          <h3>6.7. Website e melhoria de serviço</h3>
-          <p>
-            <strong>Finalidade:</strong> responder a contactos, garantir funcionamento e segurança do website, analisar utilização e melhorar experiência.<br>
-            <strong>Base legal:</strong> interesses legítimos; consentimento (para cookies não essenciais).
-          </p>
-        </div>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>7. Partilha de dados pessoais</h2>
+          <h2>6. Partilha de dados</h2>
           <p>Podemos partilhar dados com:</p>
           <ul>
-            <li><strong>Seguradoras e resseguradoras</strong> (simulação, subscrição, gestão e sinistros);</li>
-            <li><strong>Prestadores de serviços</strong> (peritos, averiguadores, assistência, oficinas, prestadores clínicos quando aplicável);</li>
-            <li><strong>Entidades financeiras</strong> (pagamentos, estornos, débitos e reembolsos);</li>
-            <li><strong>Autoridades e entidades competentes</strong> quando exista obrigação legal;</li>
-            <li><strong>Prestadores tecnológicos</strong> (hosting, e-mail, backups, analytics, gestão de cookies), com obrigações contratuais adequadas.</li>
+            <li>Seguradoras e resseguradoras (subscrição/gestão/sinistros)</li>
+            <li>Prestadores envolvidos (peritos, averiguadores, assistência, oficinas e, quando aplicável, prestadores clínicos)</li>
+            <li>Entidades financeiras (pagamentos/reembolsos/débitos)</li>
+            <li>Autoridades públicas quando exista obrigação legal</li>
+            <li>Prestadores tecnológicos (hosting, email, analytics/cookies) com garantias contratuais adequadas</li>
           </ul>
-          <p><strong>Nunca vendemos</strong> os seus dados pessoais.</p>
-        </div>
-      </section>
+          <p><strong>Não vendemos</strong> dados pessoais.</p>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>8. Transferências internacionais</h2>
+          <h2>7. Conservação</h2>
           <p>
-            Sempre que exista necessidade de transferir dados para fora do EEE (por exemplo, por via de fornecedores tecnológicos),
-            asseguramos mecanismos legais adequados, como decisões de adequação ou cláusulas contratuais-tipo.
+            Conservamos os dados apenas durante o período necessário às finalidades e obrigações legais aplicáveis. Os prazos podem variar conforme
+            o tipo de seguro, sinistro e exigências legais/regulamentares.
           </p>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>9. Prazos de conservação</h2>
+          <h2>8. Segurança</h2>
           <p>
-            Conservamos os dados apenas pelo período necessário às finalidades descritas e ao cumprimento de obrigações legais e prazos de prescrição.
+            Implementamos medidas técnicas e organizativas adequadas para proteger os dados contra acesso não autorizado, perda, destruição ou divulgação indevida.
           </p>
-          <ul>
-            <li><strong>Simulações sem contratação:</strong> período limitado e proporcional ao pedido (ex.: 30/90 dias).</li>
-            <li><strong>Contratos/apólices:</strong> durante a vigência e pelo período legal aplicável após o termo.</li>
-            <li><strong>Sinistros:</strong> até encerramento definitivo e prazo legal aplicável.</li>
-            <li><strong>Marketing (quando aplicável):</strong> até retirar consentimento/oposição ou prazo proporcional.</li>
-          </ul>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>10. Segurança</h2>
+          <h2>9. Cookies</h2>
           <p>
-            Adotamos medidas técnicas e organizativas adequadas para proteger os dados pessoais contra acesso não autorizado,
-            alteração, perda, destruição ou divulgação indevida (controlos de acesso, procedimentos internos, segurança de sistemas e backups).
+            Podemos utilizar cookies essenciais e, mediante consentimento, cookies de análise/experiência. O utilizador pode gerir preferências através do banner/gestor de cookies.
           </p>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>11. Gravação de chamadas</h2>
+          <h2>10. Direitos do titular</h2>
           <p>
-            A Jorge Marques Seguros poderá proceder à gravação de chamadas telefónicas mediante informação prévia, para efeitos de prova,
-            melhoria de qualidade e gestão da relação pré-contratual e contratual, respeitando os prazos e requisitos legais aplicáveis.
-          </p>
-        </div>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>12. Direitos dos titulares</h2>
-          <p>Nos termos do RGPD, pode exercer, nos limites legais, os seguintes direitos:</p>
-          <ul>
-            <li>Acesso</li>
-            <li>Retificação</li>
-            <li>Apagamento (quando aplicável)</li>
-            <li>Limitação do tratamento</li>
-            <li>Portabilidade (quando aplicável)</li>
-            <li>Oposição (incluindo marketing direto)</li>
-            <li>Retirada do consentimento (quando aplicável)</li>
-          </ul>
-          <p>
-            Para exercer os seus direitos, contacte-nos por e-mail:
-            <a href="mailto:geral@jorgemarquesseguros.com">geral@jorgemarquesseguros.com</a>.
+            Nos termos do RGPD, pode exercer os direitos de acesso, retificação, apagamento (quando aplicável), limitação, portabilidade (quando aplicável),
+            oposição (incluindo marketing) e retirada de consentimento.
           </p>
           <p>
-            Pode ainda apresentar reclamação junto da <strong>CNPD – Comissão Nacional de Proteção de Dados</strong>.
+            Para exercer direitos: <a href="mailto:geral@jorgemarquesseguros.com">geral@jorgemarquesseguros.com</a>
           </p>
-        </div>
-      </section>
-
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>13. Cookies</h2>
           <p>
-            O website pode utilizar cookies para garantir funcionamento e segurança (essenciais), memorizar preferências e analisar utilização,
-            sempre respeitando as suas escolhas através do gestor/banner de cookies.
+            Pode ainda apresentar reclamação à <strong>CNPD</strong>.
           </p>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>14. Ligações para sites de terceiros</h2>
+          <h2>11. Alterações</h2>
           <p>
-            O website pode conter ligações para sites de terceiros. Não nos responsabilizamos pelas políticas de privacidade desses sites,
-            devendo o utilizador consultar as respetivas políticas.
+            Esta Política pode ser atualizada. A versão em vigor estará sempre disponível no website com a respetiva data de atualização.
           </p>
-        </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>15. Alterações</h2>
-          <p>
-            Podemos atualizar esta Política sempre que necessário. A versão em vigor estará sempre disponível no website, com indicação da data
-            de atualização.
-          </p>
         </div>
-      </section>
 
-      <section class="card" style="margin-top:16px;">
-        <div class="card-content">
-          <h2>16. Contactos</h2>
-          <p>
-            <strong>Jorge Marques - Mediação de Seguros, Lda</strong><br />
-            Email: <a href="mailto:geral@jorgemarquesseguros.com">geral@jorgemarquesseguros.com</a><br />
-            Telefone: <a href="tel:+351262562999">+351 262 562 999</a><br />
-            Morada fiscal: Edifício do Camarção, Nº 11
-          </p>
+        <div class="policy-actions">
+          <a class="btn btn-secondary" href="../index.html">Voltar à Home</a>
         </div>
-      </section>
 
-      <!-- Botão voltar -->
-      <div style="margin-top:24px;">
-        <a class="btn btn-secondary" href="../index.html">Voltar à página inicial</a>
       </div>
+    </section>
 
-    </div>
   </main>
 
   <!-- =========================
-       FOOTER (simples, podes adaptar ao teu footer real)
+       FOOTER (simples e compatível)
   ========================== -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-inner">
-        <p style="margin:0;">
-          © <span id="year"></span> Jorge Marques Seguros. Todos os direitos reservados.
-        </p>
+      <div class="footer-bottom">
+        © <span id="year"></span> Jorge Marques Seguros. Todos os direitos reservados.
       </div>
     </div>
   </footer>
 
-  <!-- ✅ JS principal (já existente) -->
   <script src="../js/main.js"></script>
-
-  <!-- Ano automático (caso não tenhas isto no main.js) -->
   <script>
     (function () {
       var y = document.getElementById("year");
       if (y) y.textContent = new Date().getFullYear();
     })();
   </script>
-
 </body>
 </html>

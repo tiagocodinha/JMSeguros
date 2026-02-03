@@ -344,7 +344,7 @@ body.no-scroll {
 @media (max-width: 768px) {
   .hero-parallax {
     /* troca da imagem */
-    background-image: url("content/images/hero-mobile.png");
+    background-image: url("../content/images/hero-mobile.png");
 
     /* mobile não lida bem com fixed */
     background-attachment: scroll;
