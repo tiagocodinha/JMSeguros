@@ -1406,3 +1406,45 @@ section {
   /* ajuda a manter a espessura consistente */
   vector-effect: non-scaling-stroke;
 }
+
+
+
+/* =========================
+   PRIVACY CHECKBOX (CONTACT FORM)
+========================= */
+.form-check {
+  gap: 8px;
+}
+
+.check-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+.check-label input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: var(--primary-color);
+}
+
+.check-label a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.check-label a:hover {
+  opacity: 0.9;
+}
+
+/* erro visual no checkbox (se necessário) */
+#privacy.error {
+  outline: 2px solid rgba(239, 68, 68, 0.55);
+  outline-offset: 2px;
+  border-radius: 4px;
+}

@@ -351,23 +351,22 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="phone">Telefone</label>
-                    <input id="phone" name="phone" type="tel" placeholder="9xx xxx xxx" />
+                    <label for="phone">Telefone/Telemóvel</label>
+                    <input id="phone" name="phone" type="tel" placeholder="xxx xxx xxx" />
                     <div id="phoneError" class="error-message"></div>
                   </div>
 
                   <div class="form-group">
-                    <label for="insurance-type">Tipo de Seguro</label>
-                    <select id="insurance-type" name="insurance-type">
+                    <label for="subject">Assunto</label>
+                    <select id="subject" name="subject">
                       <option value="">Selecione uma opção</option>
-                      <option value="auto">Seguro Auto</option>
-                      <option value="moto">Seguro Moto</option>
-                      <option value="casa">Seguro Casa</option>
-                      <option value="saude">Seguro Saúde</option>
-                      <option value="vida">Seguro Vida</option>
-                      <option value="bicicleta">Bicicleta & Trotinete</option>
+                      <option value="simulacao">Pedido de Simulação</option>
+                      <option value="sinistro">Participação de Sinistro</option>
+                      <option value="renovacao">Renovação / Alterações de Apólice</option>
+                      <option value="informacoes">Informações / Esclarecimentos</option>
+                      <option value="outro">Outro</option>
                     </select>
-                    <div id="insurance-typeError" class="error-message"></div>
+                    <div id="subjectError" class="error-message"></div>
                   </div>
 
                   <div class="form-group">
@@ -376,12 +375,22 @@
                     <div id="messageError" class="error-message"></div>
                   </div>
 
+                  <div class="form-group form-check">
+                    <label class="check-label" for="privacy">
+                      <input id="privacy" name="privacy" type="checkbox" />
+                      <span>
+                        Declaro que li e aceito a
+                        <a href="politica-privacidade/" target="_blank" rel="noopener">Política de Privacidade</a>
+                      </span>
+                    </label>
+                    <div id="privacyError" class="error-message"></div>
+                  </div>
+
                   <button class="btn btn-primary btn-full" type="submit">Enviar Mensagem</button>
                 </form>
               </div>
 
               <div id="successMessage" class="success-message" style="display:none;">
-                <div style="font-size: 48px;">✅</div>
                 <h3>Mensagem enviada!</h3>
                 <p>Obrigado. Vamos responder o mais rápido possível!</p>
                 <button id="sendAnotherBtn" class="btn btn-secondary" type="button">Enviar outra</button>

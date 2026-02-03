@@ -214,27 +214,40 @@ function initContactForm() {
     const name = document.getElementById("name")?.value.trim();
     const email = document.getElementById("email")?.value.trim();
     const phone = document.getElementById("phone")?.value.trim();
+    const subject = document.getElementById("subject")?.value.trim();
     const message = document.getElementById("message")?.value.trim();
+    const privacyAccepted = document.getElementById("privacy")?.checked;
 
     let isValid = true;
 
     if (!name || name.length < 2) {
-      showError("name", "Digite o nome completo!");
+      showError("name", "Digite o nome completo");
       isValid = false;
     }
 
     if (!email || !isValidEmail(email)) {
-      showError("email", "Email inválido!");
+      showError("email", "Email inválido");
       isValid = false;
     }
 
+    // telefone é opcional, mas se preencher tem de ser válido
     if (phone && !isValidPhone(phone)) {
-      showError("phone", "Telefone inválido!");
+      showError("phone", "Telefone inválido");
+      isValid = false;
+    }
+
+    if (!subject) {
+      showError("subject", "Selecione um assunto.");
       isValid = false;
     }
 
     if (!message || message.length < 10) {
       showError("message", "Por favor, digite uma mensagem (mínimo 10 caracteres).");
+      isValid = false;
+    }
+
+    if (!privacyAccepted) {
+      showError("privacy", "Tem de aceitar a Política de Privacidade para continuar.");
       isValid = false;
     }
 
@@ -296,14 +309,22 @@ function initContactForm() {
     });
   }
 
-  form.querySelectorAll("input, textarea").forEach((input) => {
-    input.addEventListener("input", () => {
-      input.classList.remove("error");
-      const err = document.getElementById(input.id + "Error");
+  // ✅ limpar erro ao escrever / mudar
+  form.querySelectorAll("input, textarea, select").forEach((el) => {
+    el.addEventListener("input", () => {
+      el.classList.remove("error");
+      const err = document.getElementById(el.id + "Error");
+      if (err) err.classList.remove("show");
+    });
+
+    el.addEventListener("change", () => {
+      el.classList.remove("error");
+      const err = document.getElementById(el.id + "Error");
       if (err) err.classList.remove("show");
     });
   });
 }
+
 
 /* =========================
    SCROLL ANIMATIONS
