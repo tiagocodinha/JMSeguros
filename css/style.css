@@ -193,7 +193,7 @@ body.no-scroll {
 }
 
 .nav-link:hover,
-.nav-link.active {
+.nav-link.active:not(.nav-link-cta) {
   color: var(--primary-color);
 }
 
