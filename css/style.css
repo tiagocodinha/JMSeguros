@@ -1370,3 +1370,38 @@ section {
   outline-offset: 2px;
   border-radius: 4px;
 }
+
+
+/* =========================
+   CONTACT FORM HEADER — apenas mobile
+========================= */
+.contact-form-mobile-header {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* remover o texto por baixo de "Contactos" no mobile */
+  #contact .section-header .section-subtitle {
+    display: none;
+  }
+
+  /* mostrar + centrar o header por cima do form */
+  .contact-form-mobile-header {
+    display: block;           /* ✅ faltava isto */
+    text-align: center;
+    margin: 18px 0 14px;      /* espaço antes do form */
+  }
+
+  .contact-form-mobile-header h3 {
+    text-align: center;
+    margin-bottom: 6px;
+    font-size: 26px;
+  }
+
+  .contact-form-mobile-header p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 34ch;
+    color: var(--text-light);
+  }
+}
