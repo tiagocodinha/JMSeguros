@@ -1194,13 +1194,13 @@ section {
 /* ===== CATEGORIAS (SEM ÍCONES) — BARRA SHRINK-TO-FIT ===== */
 .quote-categories {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
 
   align-items: center;
-  gap: 12px;
+  gap: 6px;
 
-  padding: 14px;
+  padding: 10px;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
@@ -1220,15 +1220,15 @@ section {
   flex: 0 0 auto;
   width: max-content;
 
-  padding: 10px 14px;
+  padding: 8px 10px;
   border: 1px solid transparent;
-  border-radius: 14px;
+  border-radius: 12px;
 
   background: transparent;
   color: var(--text-dark);
 
   font-weight: 600;
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.1;
 
   cursor: pointer;
