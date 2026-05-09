@@ -8,10 +8,10 @@
 }
 
 :root {
-  --primary-color: #215ba4;
-  --primary-dark: #0052cc;
-  --primary-light: #3385ff;
-  --secondary-color: #215ba4;
+  --primary-color: #000f9f;
+  --primary-dark: #000a6e;
+  --primary-light: #1a2fbf;
+  --secondary-color: #000f9f;
 
   --text-dark: #1a1a1a;
   --text-light: #666666;
