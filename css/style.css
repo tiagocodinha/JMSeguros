@@ -795,6 +795,10 @@ section {
   outline: none;
 }
 
+.footer a:hover {
+  color: #7b9fff !important;
+}
+
 /* Mantém o teu footer-bottom como está */
 .footer-bottom {
   text-align: center;
