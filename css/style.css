@@ -1193,9 +1193,9 @@ section {
 
 /* ===== CATEGORIAS (SEM ÍCONES) — BARRA SHRINK-TO-FIT ===== */
 .quote-categories {
-  display: inline-flex;
-  width: max-content;
-  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
   align-items: center;
   gap: 12px;
@@ -1205,10 +1205,10 @@ section {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-sm);
-
-  overflow: auto;
-  -webkit-overflow-scrolling: touch;
 }
+
+.cond-field { display: none; }
+.cond-field.visible { display: block; }
 
 .quote-cat {
   position: relative;

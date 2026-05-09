@@ -142,11 +142,11 @@
               <!-- hidden -->
               <input type="hidden" id="categoria" name="categoria" value="auto" />
 
-              <!-- DADOS DO CLIENTE (comum) -->
+              <!-- DADOS DO CLIENTE (comum + condicionais por categoria) -->
               <section class="form-section">
                 <div class="form-section__head">
-                  <h3 class="form-section__title">Dados de Contacto</h3>
-                  <p class="form-section__desc">Usamos apenas para enviar a simulação.</p>
+                  <h3 class="form-section__title">Dados Pessoais e de Contacto</h3>
+                  <p class="form-section__desc">Informação pessoal e de contacto para a simulação.</p>
                 </div>
 
                 <div class="quote-grid">
@@ -167,6 +167,71 @@
                     <input id="email" name="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required />
                     <div class="q-error" data-error-for="email"></div>
                   </div>
+
+                  <div class="q-field q-col-4">
+                    <label for="nif">NIF <span class="req">*</span></label>
+                    <input id="nif" name="nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
+                    <div class="q-error" data-error-for="nif"></div>
+                  </div>
+
+                  <div class="q-field q-col-4 cond-field" data-show-for="auto,moto,acidentes,saude,vida,ppr">
+                    <label for="data_nascimento">Data de Nascimento <span class="req">*</span></label>
+                    <input id="data_nascimento" name="data_nascimento" type="date" required />
+                    <div class="q-error" data-error-for="data_nascimento"></div>
+                  </div>
+
+                  <div class="q-field q-col-4 cond-field" data-show-for="auto,moto">
+                    <label for="data_carta">Data Carta de Condução <span class="req">*</span></label>
+                    <input id="data_carta" name="data_carta" type="date" required />
+                    <div class="q-error" data-error-for="data_carta"></div>
+                  </div>
+
+                  <div class="q-field q-col-4 cond-field" data-show-for="auto,moto,saude">
+                    <label for="codigo_postal">Código Postal <span class="req">*</span></label>
+                    <input id="codigo_postal" name="codigo_postal" type="text" placeholder="1234-567" maxlength="8" required />
+                    <div class="q-error" data-error-for="codigo_postal"></div>
+                  </div>
+
+                  <div class="q-field q-col-4 cond-field" data-show-for="saude">
+                    <label for="doc_id">Nº Documento Identificação <span class="req">*</span></label>
+                    <input id="doc_id" name="doc_id" type="text" placeholder="Ex: 12345678" required />
+                    <div class="q-error" data-error-for="doc_id"></div>
+                  </div>
+
+                  <div class="q-field q-col-6 cond-field" data-show-for="saude">
+                    <label for="morada_pessoal">Morada <span class="req">*</span></label>
+                    <input id="morada_pessoal" name="morada_pessoal" type="text" placeholder="Rua, nº, localidade" required />
+                    <div class="q-error" data-error-for="morada_pessoal"></div>
+                  </div>
+
+                  <div class="q-field q-col-6 cond-field" data-show-for="saude">
+                    <label for="estado_civil">Estado Civil <span class="req">*</span></label>
+                    <select id="estado_civil" name="estado_civil" required>
+                      <option value="">Selecionar</option>
+                      <option value="solteiro">Solteiro(a)</option>
+                      <option value="casado">Casado(a)</option>
+                      <option value="uniao_facto">União de Facto</option>
+                      <option value="divorciado">Divorciado(a)</option>
+                      <option value="viuvo">Viúvo(a)</option>
+                    </select>
+                    <div class="q-error" data-error-for="estado_civil"></div>
+                  </div>
+
+                  <div class="q-field q-col-4 cond-field" data-show-for="acidentes,saude,vida,ppr">
+                    <label for="profissao">Profissão <span class="req">*</span></label>
+                    <input id="profissao" name="profissao" type="text" placeholder="Ex: Engenheiro, professor..." required />
+                    <div class="q-error" data-error-for="profissao"></div>
+                  </div>
+
+                  <div class="q-field q-col-4 cond-field" data-show-for="acidentes">
+                    <label for="tipo_risco">Tipo de Risco <span class="req">*</span></label>
+                    <select id="tipo_risco" name="tipo_risco" required>
+                      <option value="">Selecionar</option>
+                      <option value="extra_profissional">Extra-Profissional</option>
+                      <option value="profissional_extra">Profissional e Extra-Profissional</option>
+                    </select>
+                    <div class="q-error" data-error-for="tipo_risco"></div>
+                  </div>
                 </div>
               </section>
 
@@ -178,30 +243,6 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="auto_nif">NIF <span class="req">*</span></label>
-                    <input id="auto_nif" name="auto_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="auto_nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="auto_data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="auto_data_nascimento" name="auto_data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="auto_data_nascimento"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="auto_data_carta">Data Carta de Condução <span class="req">*</span></label>
-                    <input id="auto_data_carta" name="auto_data_carta" type="date" required />
-                    <div class="q-error" data-error-for="auto_data_carta"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="auto_codigo_postal">Código Postal <span class="req">*</span></label>
-                    <input id="auto_codigo_postal" name="auto_codigo_postal" type="text" placeholder="1234-567" maxlength="8" required />
-                    <div class="q-error" data-error-for="auto_codigo_postal"></div>
-                  </div>
-
                   <div class="q-field q-col-4">
                     <label for="auto_matricula_historico">Matrícula Histórico</label>
                     <input id="auto_matricula_historico" name="auto_matricula_historico" type="text" placeholder="AA-00-AA" />
@@ -278,30 +319,6 @@
 
                 <div class="quote-grid">
                   <div class="q-field q-col-4">
-                    <label for="moto_nif">NIF <span class="req">*</span></label>
-                    <input id="moto_nif" name="moto_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="moto_nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="moto_data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="moto_data_nascimento" name="moto_data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="moto_data_nascimento"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="moto_data_carta">Data Carta de Condução <span class="req">*</span></label>
-                    <input id="moto_data_carta" name="moto_data_carta" type="date" required />
-                    <div class="q-error" data-error-for="moto_data_carta"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="moto_codigo_postal">Código Postal <span class="req">*</span></label>
-                    <input id="moto_codigo_postal" name="moto_codigo_postal" type="text" placeholder="1234-567" maxlength="8" required />
-                    <div class="q-error" data-error-for="moto_codigo_postal"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
                     <label for="moto_matricula_historico">Matrícula Histórico</label>
                     <input id="moto_matricula_historico" name="moto_matricula_historico" type="text" placeholder="AA-00-AA" />
                     <div class="q-error" data-error-for="moto_matricula_historico"></div>
@@ -358,38 +375,10 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="ap_nif">NIF <span class="req">*</span></label>
-                    <input id="ap_nif" name="ap_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="ap_nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="ap_data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="ap_data_nascimento" name="ap_data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="ap_data_nascimento"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="ap_tipo_risco">Tipo de Risco <span class="req">*</span></label>
-                    <select id="ap_tipo_risco" name="ap_tipo_risco" required>
-                      <option value="">Selecionar</option>
-                      <option value="extra_profissional">Extra-Profissional</option>
-                      <option value="profissional_extra">Profissional e Extra-Profissional</option>
-                    </select>
-                    <div class="q-error" data-error-for="ap_tipo_risco"></div>
-                  </div>
-
                   <div class="q-field q-col-6">
                     <label for="ap_pessoas">Nº de Pessoas <span class="req">*</span></label>
                     <input id="ap_pessoas" name="ap_pessoas" type="number" min="1" placeholder="Ex: 1" required />
                     <div class="q-error" data-error-for="ap_pessoas"></div>
-                  </div>
-
-                  <div class="q-field q-col-6">
-                    <label for="ap_profissao">Profissão / Atividade <span class="req">*</span></label>
-                    <input id="ap_profissao" name="ap_profissao" type="text" placeholder="Ex: Construção, escritório, estudante..." required />
-                    <div class="q-error" data-error-for="ap_profissao"></div>
                   </div>
 
                   <div class="q-field q-col-6">
@@ -412,56 +401,7 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="saude_nif">NIF <span class="req">*</span></label>
-                    <input id="saude_nif" name="saude_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="saude_nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="saude_doc_id">Nº Documento Identificação <span class="req">*</span></label>
-                    <input id="saude_doc_id" name="saude_doc_id" type="text" placeholder="Ex: 12345678" required />
-                    <div class="q-error" data-error-for="saude_doc_id"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="saude_data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="saude_data_nascimento" name="saude_data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="saude_data_nascimento"></div>
-                  </div>
-
                   <div class="q-field q-col-6">
-                    <label for="saude_morada">Morada <span class="req">*</span></label>
-                    <input id="saude_morada" name="saude_morada" type="text" placeholder="Rua, nº, localidade" required />
-                    <div class="q-error" data-error-for="saude_morada"></div>
-                  </div>
-
-                  <div class="q-field q-col-3">
-                    <label for="saude_codigo_postal">Código Postal <span class="req">*</span></label>
-                    <input id="saude_codigo_postal" name="saude_codigo_postal" type="text" placeholder="1234-567" maxlength="8" required />
-                    <div class="q-error" data-error-for="saude_codigo_postal"></div>
-                  </div>
-
-                  <div class="q-field q-col-3">
-                    <label for="saude_estado_civil">Estado Civil <span class="req">*</span></label>
-                    <select id="saude_estado_civil" name="saude_estado_civil" required>
-                      <option value="">Selecionar</option>
-                      <option value="solteiro">Solteiro(a)</option>
-                      <option value="casado">Casado(a)</option>
-                      <option value="uniao_facto">União de Facto</option>
-                      <option value="divorciado">Divorciado(a)</option>
-                      <option value="viuvo">Viúvo(a)</option>
-                    </select>
-                    <div class="q-error" data-error-for="saude_estado_civil"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="saude_profissao">Profissão <span class="req">*</span></label>
-                    <input id="saude_profissao" name="saude_profissao" type="text" placeholder="Ex: Engenheiro, professor..." required />
-                    <div class="q-error" data-error-for="saude_profissao"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
                     <label for="saude_pessoas">Nº de Pessoas <span class="req">*</span></label>
                     <input id="saude_pessoas" name="saude_pessoas" type="number" min="1" placeholder="Ex: 2" required />
                     <div class="q-error" data-error-for="saude_pessoas"></div>
@@ -488,24 +428,6 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="vida_nif">NIF <span class="req">*</span></label>
-                    <input id="vida_nif" name="vida_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="vida_nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="vida_data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="vida_data_nascimento" name="vida_data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="vida_data_nascimento"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="vida_profissao">Profissão <span class="req">*</span></label>
-                    <input id="vida_profissao" name="vida_profissao" type="text" placeholder="Ex: Engenheiro, professor..." required />
-                    <div class="q-error" data-error-for="vida_profissao"></div>
-                  </div>
-
                   <div class="q-field q-col-6">
                     <label for="vida_capital">Capital Pretendido (€) <span class="req">*</span></label>
                     <input id="vida_capital" name="vida_capital" type="number" min="1" placeholder="Ex: 100000" required />
@@ -533,12 +455,6 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="hab_nif">NIF <span class="req">*</span></label>
-                    <input id="hab_nif" name="hab_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="hab_nif"></div>
-                  </div>
-
                   <div class="q-field q-col-4">
                     <label for="hab_ano_construcao">Ano de Construção <span class="req">*</span></label>
                     <input id="hab_ano_construcao" name="hab_ano_construcao" type="number" min="1800" max="2026" placeholder="Ex: 2005" required />
@@ -636,24 +552,6 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="ppr_nif">NIF <span class="req">*</span></label>
-                    <input id="ppr_nif" name="ppr_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="ppr_nif"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="ppr_data_nascimento">Data de Nascimento <span class="req">*</span></label>
-                    <input id="ppr_data_nascimento" name="ppr_data_nascimento" type="date" required />
-                    <div class="q-error" data-error-for="ppr_data_nascimento"></div>
-                  </div>
-
-                  <div class="q-field q-col-4">
-                    <label for="ppr_profissao">Profissão <span class="req">*</span></label>
-                    <input id="ppr_profissao" name="ppr_profissao" type="text" placeholder="Ex: Engenheiro, professor..." required />
-                    <div class="q-error" data-error-for="ppr_profissao"></div>
-                  </div>
-
                   <div class="q-field q-col-6">
                     <label for="ppr_valor">Valor Mensal (€) <span class="req">*</span></label>
                     <input id="ppr_valor" name="ppr_valor" type="number" min="1" placeholder="Ex: 50" required />
@@ -686,12 +584,6 @@
                 </div>
 
                 <div class="quote-grid">
-                  <div class="q-field q-col-4">
-                    <label for="rc_nif">NIF <span class="req">*</span></label>
-                    <input id="rc_nif" name="rc_nif" type="text" placeholder="123456789" inputmode="numeric" maxlength="9" required />
-                    <div class="q-error" data-error-for="rc_nif"></div>
-                  </div>
-
                   <div class="q-field q-col-4">
                     <label for="rc_duracao">Duração <span class="req">*</span></label>
                     <select id="rc_duracao" name="rc_duracao" required>

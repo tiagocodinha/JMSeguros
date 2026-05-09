@@ -247,6 +247,16 @@
         formTitle.textContent = titles[key] || "Pedido de Simulação";
       }
 
+      qsa(".cond-field", form).forEach((el) => {
+        const cats = (el.dataset.showFor || "").split(",");
+        const show = cats.includes(key);
+        el.classList.toggle("visible", show);
+        qsa("[required]", el).forEach((inp) => {
+          if (!show) inp.removeAttribute("required");
+          else inp.setAttribute("required", "");
+        });
+      });
+
       clearAllErrors();
       showStatus("");
 
@@ -289,32 +299,13 @@
 
       checkIfVisible("nome", (v) => isMinWords(v, 2), "Indique pelo menos nome e apelido.");
       checkIfVisible("codigo_postal", isPostalPTValid, "Código postal inválido (ex: 1234-567).");
-      checkIfVisible("auto_codigo_postal", isPostalPTValid, "Código postal inválido (ex: 1234-567).");
-      checkIfVisible("moto_codigo_postal", isPostalPTValid, "Código postal inválido (ex: 1234-567).");
-      checkIfVisible("saude_codigo_postal", isPostalPTValid, "Código postal inválido (ex: 1234-567).");
       checkIfVisible("nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("auto_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("moto_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("ap_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("saude_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("vida_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("hab_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("ppr_nif", isNIFValid, "NIF inválido (dígito de controlo).");
-      checkIfVisible("rc_nif", isNIFValid, "NIF inválido (dígito de controlo).");
       checkIfVisible("telemovel", isPhonePTValid, "Telemóvel inválido (9 dígitos, começa por 9).");
       checkIfVisible("email", isEmailValid, "Email inválido.");
 
       checkIfVisible("data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
-      checkIfVisible("auto_data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
-      checkIfVisible("moto_data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
-      checkIfVisible("ap_data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
-      checkIfVisible("saude_data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
-      checkIfVisible("vida_data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
-      checkIfVisible("ppr_data_nascimento", isPastDate, "A data de nascimento tem de ser no passado.");
       checkIfVisible("data_matricula", isPastDate, "A data da matrícula tem de ser no passado.");
       checkIfVisible("data_carta", isPastDate, "A data da carta tem de ser no passado.");
-      checkIfVisible("auto_data_carta", isPastDate, "A data da carta tem de ser no passado.");
-      checkIfVisible("moto_data_carta", isPastDate, "A data da carta tem de ser no passado.");
       checkIfVisible("inicio_seguro", isTodayOrFuture, "A data de início deve ser hoje ou no futuro.");
 
       checkIfVisible("matricula", isMatriculaPTValid, "Matrícula inválida (formatos PT comuns).");
@@ -385,18 +376,14 @@
         setError("nome", v ? (isMinWords(v, 2) ? "" : "Indique nome e apelido.") : "");
       });
 
-      ["codigo_postal", "auto_codigo_postal", "moto_codigo_postal", "saude_codigo_postal"].forEach((id) => {
-        bind(id, (el) => {
-          const v = trim(el.value);
-          setError(id, v ? (isPostalPTValid(v) ? "" : "Ex: 1234-567") : "");
-        });
+      bind("codigo_postal", (el) => {
+        const v = trim(el.value);
+        setError("codigo_postal", v ? (isPostalPTValid(v) ? "" : "Ex: 1234-567") : "");
       });
 
-      ["nif", "auto_nif", "moto_nif", "ap_nif", "saude_nif", "vida_nif", "hab_nif", "ppr_nif", "rc_nif"].forEach((id) => {
-        bind(id, (el) => {
-          const v = trim(el.value);
-          setError(id, v ? (isNIFValid(v) ? "" : "NIF inválido.") : "");
-        });
+      bind("nif", (el) => {
+        const v = trim(el.value);
+        setError("nif", v ? (isNIFValid(v) ? "" : "NIF inválido.") : "");
       });
 
       bind("telemovel", (el) => {
@@ -409,16 +396,14 @@
         setError("email", v ? (isEmailValid(v) ? "" : "Email inválido.") : "");
       });
 
-      ["matricula", "auto_matricula", "moto_matricula", "auto_matricula_historico", "moto_matricula_historico"].forEach((id) => {
+      ["auto_matricula", "moto_matricula", "auto_matricula_historico", "moto_matricula_historico"].forEach((id) => {
         bind(id, (el) => {
           const v = trim(el.value);
           setError(id, v ? (isMatriculaPTValid(v) ? "" : "Matrícula inválida.") : "");
         });
       });
 
-      ["data_nascimento", "data_matricula", "data_carta", "auto_data_matricula", "moto_data_matricula",
-       "auto_data_nascimento", "moto_data_nascimento", "ap_data_nascimento", "saude_data_nascimento",
-       "vida_data_nascimento", "ppr_data_nascimento", "auto_data_carta", "moto_data_carta"].forEach(
+      ["data_nascimento", "data_matricula", "data_carta", "auto_data_matricula", "moto_data_matricula"].forEach(
         (id) => {
           bind(id, (el) => {
             const v = trim(el.value);
@@ -446,9 +431,7 @@
         obj[key] = String(value);
       });
 
-      ["nif", "auto_nif", "moto_nif", "ap_nif", "saude_nif", "vida_nif", "hab_nif", "ppr_nif", "rc_nif"].forEach((k) => {
-        if (obj[k]) obj[k] = onlyDigits(obj[k]);
-      });
+      if (obj.nif) obj.nif = onlyDigits(obj.nif);
       if (obj.telemovel) obj.telemovel = onlyDigits(obj.telemovel);
 
       const mat = obj.matricula || obj.auto_matricula || obj.moto_matricula || "";
